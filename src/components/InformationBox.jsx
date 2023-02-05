@@ -8,7 +8,6 @@ export const InformationBox = (
         crossType = '',
         text,
     }) => {
-    console.log(crossType)
 
     const { isOpen, onToggle } = useDisclosure()
 

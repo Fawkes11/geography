@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CityView from "../components/laptopViews/CityView";
 import GeneralInformation from "../components/laptopViews/GeneralInformation";
 import MajorCities from "../components/laptopViews/MajorCities";
 import NationalInsignia from "../components/laptopViews/NationalInsignia";
@@ -26,10 +27,14 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/geography/ciudades-principales',
-                element: <MajorCities />,
+                element: <MajorCities />
             }
             
         ]
+    },
+    {
+        path: '/geography/ciudades-principales/barcelona',
+        element: <CityView/>
     },
     {
         path: '/',
@@ -37,26 +42,3 @@ export const router = createBrowserRouter([
     }
 ]);
 
-
-/* export const router = createBrowserRouter([
-    {
-        path: '/geography',
-        element: <RootLayout/>,
-        errorElement: <h1>NO HAY RUTA</h1>,
-        children: [
-            {
-                index: true,
-                element: <Home />,
-            },
-            {
-                path: '/geography/algo',
-                element: <Algo />,
-            }
-
-        ]
-    },
-    {
-        path: '/',
-        element: <Start />
-    }
-]); */
