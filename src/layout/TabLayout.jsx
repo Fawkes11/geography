@@ -3,7 +3,7 @@ import tab_image from '../assets/tab.png'
 
 const TabLayout = ({children}) => {
     return (
-        <Flex width={'100%'} justifyContent={'center'} alignItems={'center'}>
+        <Flex width={'100%'} justifyContent={'center'} alignItems={'center'} marginBottom={'65px'}>
 
                 <Box
                     width={'100%'}

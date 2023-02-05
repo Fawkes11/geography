@@ -1,6 +1,66 @@
-import { Flex } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Icon } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import TabLayout from '../../layout/TabLayout'
+import { motion } from 'framer-motion'
+
+const CityPoint = ({ translate, id, path = '#' }) => {
+    const [isHovered, setHovered] = useState(false)
+
+    return (
+        <Box
+            as={Link}
+            to={path}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
+            <g
+                id={`${id}_group`}
+                data-name={`${id}_group`}
+                transform={translate}
+                cursor='pointer'
+            >
+                <motion.circle
+                    animate={{ r: isHovered ? 16 : 15 }}
+                    id={`${id}_firstCircle`}
+                    data-name={`${id}_firstCircle`}
+                    cx="13"
+                    cy="13"
+                    r={15}
+                    transform="translate(2 2)"
+                    fill="#333" />
+
+                <g id={`${id}_secondCircle`}
+                    data-name={`${id}_secondCircle`}
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2">
+                    <motion.circle
+                        animate={{ r: isHovered ? 20 : 0 }}
+                        cx="15"
+                        cy="15"
+                        r={0}
+                        stroke="#333"
+                    />
+                </g>
+                <g
+                    id={`${id}_thirdCircle`}
+                    data-name={`${id}_thirdCircle`}
+                    transform="translate(1 1)"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2">
+                    <motion.circle
+                        animate={{ r: isHovered ? 24 : 0 }}
+                        cx="14"
+                        cy="14"
+                        r={0}
+                        stroke="#333" />
+                </g>
+            </g>
+        </Box>
+    )
+}
 
 const MajorCities = () => {
     return (
@@ -27,121 +87,51 @@ const MajorCities = () => {
                         </g>
                     </g>
 
+                    <CityPoint
+                        translate="translate(524.53 368.566)"
+                        id='valencia'
+                    />
 
-                    <g id="Componente_53_6" data-name="Componente 53_6" transform="translate(524.53 368.566)">
-                        <circle id="Elipse_10" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
+                    <CityPoint
+                        translate="translate(265.53 561.566)"
+                        id='malaga'
+                    />
 
+                    <CityPoint
+                        translate="translate(170.53 513.566)"
+                        id='sevilla'
+                    />
 
-                    <g id="Componente_53_7" data-name="Componente 53_7" transform="translate(265.53 561.566)">
-                        <circle id="Elipse_10-2" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-2" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-2" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
+                    <CityPoint
+                        translate="translate(335.53 299.566)"
+                        id='sevilla'
+                    />
 
+                    <CityPoint
+                        translate="translate(456.53 160.566)"
+                        id='zaragoza'
+                    />
 
-                    <g id="Componente_53_8" data-name="Componente 53_8" transform="translate(170.53 513.566)">
-                        <circle id="Elipse_10-3" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-3" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-3" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
+                    <CityPoint
+                        translate="translate(365.53 37.566)"
+                        id='bilbao'
+                    />
 
+                    <CityPoint
+                        translate="translate(199.53 232.566)"
+                        id='salamanca'
+                    />
 
-                    <g id="Componente_53_9" data-name="Componente 53_9" transform="translate(335.53 299.566)">
-                        <circle id="Elipse_10-4" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-4" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-4" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
+                    <CityPoint
+                        translate="translate(49.53 47.566)"
+                        id='compostela'
+                    />
 
-
-                    <g id="Componente_53_10" data-name="Componente 53_10" transform="translate(456.53 160.566)">
-                        <circle id="Elipse_10-5" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-5" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-5" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
-
-
-                    <g id="Componente_53_11" data-name="Componente 53_11" transform="translate(365.53 37.566)">
-                        <circle id="Elipse_10-6" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-6" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-6" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
-
-
-                    <g id="Componente_53_12" data-name="Componente 53_12" transform="translate(199.53 232.566)">
-                        <circle id="Elipse_10-7" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-7" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-7" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
-
-                    <g id="Componente_53_13" data-name="Componente 53_13" transform="translate(49.53 47.566)">
-                        <circle id="Elipse_10-8" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-8" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-8" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
-
-
-                    <g id="Componente_53_14" data-name="Componente 53_14" transform="translate(638.53 190.566)">
-                        <circle id="Elipse_10-9" data-name="Elipse 10" cx="13" cy="13" r="13" transform="translate(2 2)" fill="#333" />
-                        <g id="Elipse_19-9" data-name="Elipse 19" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="15" cy="15" r="15" stroke="none" />
-                            <circle cx="15" cy="15" r="14" fill="none" />
-                        </g>
-                        <g id="Elipse_20-9" data-name="Elipse 20" transform="translate(1 1)" fill="none" stroke="#333" stroke-width="2">
-                            <circle cx="14" cy="14" r="14" stroke="none" />
-                            <circle cx="14" cy="14" r="13" fill="none" />
-                        </g>
-                    </g>
+                    <CityPoint
+                        translate="translate(638.53 190.566)"
+                        id='barcelona'
+                        path='barcelona'
+                    />
 
 
                     <text id="Madrid" transform="translate(351 288)" fill="#010326" font-size="18" font-family="SegoeUI-Light, Segoe UI" font-weight="300" letter-spacing="0.025em"><tspan x="-27.967" y="0">Madrid</tspan></text>
