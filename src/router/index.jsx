@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import GeneralInformation from "../components/laptopViews/GeneralInformation";
+import MajorCities from "../components/laptopViews/MajorCities";
+import NationalInsignia from "../components/laptopViews/NationalInsignia";
 import RootLayout from "../layout/RootLayout";
-import Algo from "../pages/algo";
 import Home from "../pages/Home";
 import Start from "../pages/Start";
 
@@ -15,10 +17,18 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: '/geography/algo',
-                element: <Algo />,
+                path:'/geography/informacion-general',
+                element: <GeneralInformation />,
+            },
+            {
+                path:'/geography/insignias-nacionales',
+                element: <NationalInsignia />,
+            },
+            {
+                path:'/geography/ciudades-principales',
+                element: <MajorCities />,
             }
-
+            
         ]
     },
     {
