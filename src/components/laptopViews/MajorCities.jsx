@@ -1,4 +1,4 @@
-import { Box, Flex, Icon } from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import TabLayout from '../../layout/TabLayout'
@@ -65,6 +65,9 @@ const CityPoint = ({ translate, id, path = '#' }) => {
 const MajorCities = () => {
     return (
         <TabLayout>
+            <Heading position={'absolute'} top={'1%'} left={'50%'} transform={'translateX(-50%)'}>
+                Ciudades Principales
+            </Heading>
             <Flex
                 position={'absolute'}
                 left={'50%'}

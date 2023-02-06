@@ -29,6 +29,7 @@ const LaptopLayout = ({children}) => {
                         height={'76.3%'}
                         top={'6.35%'}
                         left={'12.1%'}
+                        overflow={'hidden'}
                     >
                         {children}
 

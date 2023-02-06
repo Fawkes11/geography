@@ -5,6 +5,7 @@ import iconInfo from '../assets/icon-info.png'
 import iconFlag from '../assets/icon-flag.png'
 import iconhome from '../assets/icon-home.png'
 import iconWeather from '../assets/icon-weather.png'
+import { AnimatePresence, motion } from 'framer-motion'
 
 
 
@@ -36,27 +37,57 @@ const menuData = [
 
 ]
 
+const menuVariants = {
+    hidden: {
+        opacity: 0,
+        x: '-100vw'
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut"
+        }
+    },
+    exit: {
+        opacity: 0,
+        x: 500,
+        duration: 2,
+        transition: {ease: "easeInOut"}
+    }
+}
+
 
 const MainMenu = () => {
     return (
-        <Box
-        display={'flex'} 
-        justifyContent={'center'} 
-        alignItems={'center'} 
-        height='100%'>
+        <AnimatePresence>
+            <Box
+                as={motion.div}
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                height='100%'
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                >
 
-            <Grid 
-            templateColumns={'repeat(2, 1Fr)'} 
-            gap={3} 
-            justifyContent={'center'} 
-            alignItems={'center'}>
-                {
-                    menuData.map((data, index) =>
-                        <FeatureBox key={index} {...data} />
-                    )
-                }
-            </Grid>
-        </Box>
+                <Grid
+                    templateColumns={'repeat(2, 1Fr)'}
+                    gap={3}
+                    justifyContent={'center'}
+                    alignItems={'center'}>
+                    {
+                        menuData.map((data, index) =>
+                            <FeatureBox key={index} {...data} />
+                        )
+                    }
+                </Grid>
+            </Box>
+        </AnimatePresence>
     )
 }
 

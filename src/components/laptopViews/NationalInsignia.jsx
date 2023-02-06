@@ -4,6 +4,7 @@ import tab_image from '../../assets/tab.png'
 import spainFlag from '../../assets/spain_flag.png'
 import CrossIcon from '../CrossIcon'
 import InsigniaBox from '../InsigniaBox'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const insigniaData = {
     bandera: {
@@ -17,36 +18,89 @@ const insigniaData = {
     }
 }
 
+const imageVariants = {
+    hidden: {
+        opacity: 0,
+        y: '-50vh',
+    },
+    visible: {
+        opacity: 1,
+        y: '0',
+        transition: {
+            type: "spring",
+            duration: 1.5,
+            ease: "easeInOut"
+        }
+    },
+    exit: {
+        opacity: 0,
+        y: '-50vh',
+    }
+}
+
+const mainVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.6
+        }
+    }
+}
+
 const NationalInsignia = () => {
 
 
     return (
-        <>
+        <AnimatePresence>
             <LaptopLayout>
                 <Image
+                    as={motion.img}
                     src={tab_image}
-                    width={'100%'} />
+                    width={'100%'}
+                    variants={imageVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                />
                 <Heading
+                    as={motion.h2}
                     position={'absolute'}
                     top={'10%'}
                     left={'50%'}
                     transform={'translateX(-50%)'}
+                    
+                    variants={mainVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
                 >Insignias nacionales</Heading>
                 <HStack
+                    as={motion.div}
                     spacing={2}
                     position={'absolute'}
                     top={'27%'}
                     left={'50%'}
-                    transform={'translateX(-50%)'}>
-                    <InsigniaBox {...insigniaData.bandera}/>
-                    <InsigniaBox {...insigniaData.marcha}/>
+                    transform={'translateX(-50%)'}
+                    variants={mainVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    >
+                    <InsigniaBox {...insigniaData.bandera} />
+                    <InsigniaBox {...insigniaData.marcha} />
                 </HStack>
 
             </LaptopLayout>
 
 
 
-        </>
+        </AnimatePresence>
     )
 }
 

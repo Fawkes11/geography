@@ -3,6 +3,7 @@ import CityView from "../components/laptopViews/CityView";
 import GeneralInformation from "../components/laptopViews/GeneralInformation";
 import MajorCities from "../components/laptopViews/MajorCities";
 import NationalInsignia from "../components/laptopViews/NationalInsignia";
+import Weather from "../components/laptopViews/Weather";
 import RootLayout from "../layout/RootLayout";
 import Home from "../pages/Home";
 import Start from "../pages/Start";
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path:'/geography/ciudades-principales',
                 element: <MajorCities />
+            },
+            {
+                path:'/geography/clima',
+                element: <Weather />
             }
             
         ]
